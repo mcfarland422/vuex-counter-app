@@ -1,29 +1,23 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div class="counter">
-      {{ counter }}
-    </div>
-    <div class="buttons">
-      <button>-</button>
-      <button @click="increaseCounter">+</button>
-    </div>
+    <counter />
+    <counter-squared />
+    <buttons />
+    <color-code />
+    
+    <div class="bottom-spacer"></div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'Home',
-  data() {
-    return {
-      counter: 0
-    }
-  },
-  methods: {
-    increaseCounter() {
-      this.counter++
-    }
+  components: {
+    'counter': require('@/components/Counter.vue').default,
+    'counter-squared': require('@/components/CounterSquared.vue').default,
+    'buttons': require('@/components/Buttons.vue').default,
+    'color-code': require('@/components/ColorCode.vue').default
   }
 }
 </script>
@@ -39,5 +33,8 @@ div {
   font-size: 40px;
   width: 100px;
   margin: 0 10px;
+}
+.bottom-spacer {
+  height: 20vh;
 }
 </style>
